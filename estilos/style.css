@@ -1,0 +1,116 @@
+* {
+    margin: 0;
+    padding: 0px;
+    font-family: "Poppins", sans-serif;
+  }
+  html {
+    font-size: 16px;
+  }
+  .container {
+    display: grid;
+    grid-template-columns: 01fr 1fr 1fr;
+    grid-template-rows: 0.2fr 1.5fr 1.5fr 1.5fr 0.4fr 1fr 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "header header header"
+      "slogan slogan slogan"
+      "portfolio portfolio portfolio"
+      "portfolio2 portfolio2 portfolio2"
+      "planos-header planos-header planos-header"
+      "plano1 plano2 plano3"                                                                                
+      "footer footer footer";
+  }
+  
+  .header {
+    grid-area: header;
+    padding-top: 1.2rem;
+    padding-bottom: 20px;
+    padding-left: 10%;
+    padding-right: 10%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .header a {
+    text-decoration: none;
+    color: #000;
+    font-size: 1rem;
+    margin: 0;
+  }
+  
+  .btnorcamento {
+    background: linear-gradient(180deg, #c5da11 0%, #4b690a 100%);
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 10px;
+    color: rgb(255, 255, 255);
+    border-color: rgb(199, 211, 172);
+    border-style: solid;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+  
+  .header a:hover {
+    text-decoration: underline;
+  }
+  
+  .slogan {
+    grid-area: slogan;
+    background-color: #331508;
+    color: rgb(167, 35, 35);
+    font-size: 48px;
+    line-height: 72px;
+    padding-right: 30%;
+    padding-left: 10%;
+    padding-bottom: 24px;
+  }
+  
+  .portfolio {
+    grid-area: portfolio;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: #ece0db;
+  }
+  
+  .portfolio ul {
+    padding-left: 24px;
+    padding-top: 10px;
+    font-size: 2rem;
+    color: #fa1414;
+    line-height: 40px;
+  }
+  
+  .portlist {
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+  
+  .portfolio2 {
+    grid-area: portfolio2;
+  }
+  
+  .planos-header {
+    grid-area: planos-header;
+  }
+  
+  .plano1 {
+    grid-area: plano1;
+  }
+  
+  .plano2 {
+    grid-area: plano2;
+  }
+  
+  .plano3 {
+    grid-area: plano3;
+  }
+  
+  .footer {
+    grid-area: footer;
+  }
+  
