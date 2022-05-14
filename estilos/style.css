@@ -1,116 +1,283 @@
 * {
-    margin: 0;
-    padding: 0px;
-    font-family: "Poppins", sans-serif;
-  }
-  html {
-    font-size: 16px;
-  }
-  .container {
-    display: grid;
-    grid-template-columns: 01fr 1fr 1fr;
-    grid-template-rows: 0.2fr 1.5fr 1.5fr 1.5fr 0.4fr 1fr 1fr;
-    gap: 0px 0px;
-    grid-auto-flow: row;
-    grid-template-areas:
-      "header header header"
-      "slogan slogan slogan"
-      "portfolio portfolio portfolio"
-      "portfolio2 portfolio2 portfolio2"
-      "planos-header planos-header planos-header"
-      "plano1 plano2 plano3"
-      "footer footer footer";
-  }
-  
-  .header {
-    grid-area: header;
-    padding-top: 1.2rem;
-    padding-bottom: 20px;
-    padding-left: 10%;
-    padding-right: 10%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .header a {
-    text-decoration: none;
+  margin: 0;
+  padding: 0px;
+  font-family: "Poppins", sans-serif;
+}
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  list-style-type: none;
+  text-decoration: none;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+  list-style: none;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+*::marker {
+  content: "";
+}
+
+/* reset the style end*/
+
+:root {
+    /* responsive size */
+  --step--5: clamp(0.5rem, calc(0.9059rem + 0.4706vw), 0.8rem);
+  --step--4: clamp(1rem, 0.9059rem + 0.4706vw, 1.4rem);
+  --step--3: clamp(1rem, calc(0rem + 5vw), 2.5rem);
+  --step--2: clamp(1rem, calc(0.83rem + 0.4vw), 0.91rem);
+  --step--1: clamp(1.4rem, calc(0.97rem + 0.6vw), 1.09rem);
+
+  --step-0: clamp(1.21rem, calc(1.14rem + 0.85vw), 1.75rem);
+  --step-1: clamp(1.58rem, calc(1.34rem + 1.2vw), 2.19rem);
+  --step-2: clamp(1.89rem, calc(1.56rem + 1.65vw), 2.73rem);
+  --step-3: clamp(2.27rem, calc(1.82rem + 2.24vw), 3.42rem);
+  --step-4: clamp(2.72rem, calc(2.12rem + 3.03vw), 4.27rem);
+  --step-5: clamp(3.27rem, calc(2.46rem + 4.05vw), 5.34rem);
+  --header-menu-display:grid;
+  --btnorcamento-size:var(--step--2);
+}
+
+/* Tablet version */
+@media screen and (max-width:768px) {
+   :root {
+    --header-menu-display:none;
+
+   }
+
+}
+
+
+html {
+  font-size: 16px;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 01fr 1fr 1fr;
+  grid-template-rows: 0.2fr 1.5fr 1.5fr 1.5fr 0.4fr 1fr 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "header header header"
+    "slogan slogan slogan"
+    "portfolio portfolio portfolio"
+    "portfolio2 portfolio2 portfolio2"
+    "planos-header planos-header planos-header"
+    "plano1 plano2 plano3"
+    "footer footer footer";
+}
+
+.header {
+  grid-area: header;
+  padding-top: 1.2rem;
+  padding-bottom: 20px;
+  padding-left: 10%;
+  padding-right: 10%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header ul  {
+  display: var(--header-menu-display);
+  grid-auto-flow: column;
+  grid-gap: 2rem;
+  justify-content: space-between;
+}
+
+.header ul li a {
     color: #000;
     font-size: 1rem;
     margin: 0;
   }
-  
-  .btnorcamento {
-    background: linear-gradient(180deg, #c5da11 0%, #4b690a 100%);
-    border-radius: 4px;
-    font-size: 1rem;
-    font-weight: 600;
-    padding: 10px;
-    color: rgb(255, 255, 255);
-    border-color: rgb(199, 211, 172);
-    border-style: solid;
-    text-transform: uppercase;
-    cursor: pointer;
-  }
-  
-  .header a:hover {
-    text-decoration: underline;
-  }
-  
-  .slogan {
-    grid-area: slogan;
-    background-color: #331508;
-    color: rgb(114, 92, 243);
-    font-size: 48px;
-    line-height: 72px;
-    padding-right: 30%;
-    padding-left: 10%;
-    padding-bottom: 24px;
-  }
-  
-  .portfolio {
-    grid-area: portfolio;
-    padding-left: 10%;
-    padding-right: 10%;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    background-color: #ece0db;
-  }
-  
-  .portfolio ul {
-    padding-left: 24px;
-    padding-top: 10px;
-    font-size: 2rem;
-    color: #df2727;
-    line-height: 40px;
-  }
-  
-  .portlist {
-    font-size: 1.5rem;
-    font-weight: 700;
-  }
-  
-  .portfolio2 {
-    grid-area: portfolio2;
-  }
-  
-  .planos-header {
-    grid-area: planos-header;
-  }
-  
-  .plano1 {
-    grid-area: plano1;
-  }
-  
-  .plano2 {
-    grid-area: plano2;
-  }
-  
-  .plano3 {
-    grid-area: plano3;
-  }
-  
-  .footer {
-    grid-area: footer;
-  }
-  
+
+.btnorcamento {
+  background: linear-gradient(180deg, #c5da11 0%, #4b690a 100%);
+  border-radius: 4px;
+  font-size: var(--btnorcamento-size);
+  font-weight: 600;
+  padding: 10px;
+  color: rgb(255, 255, 255);
+  border-style: solid;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.header a:hover {
+  text-decoration: underline;
+}
+
+.slogan {
+  grid-area: slogan;
+  background-color: #331508;
+  color: rgb(255, 255, 255);
+  font-weight: 600;
+  font-size: 3rem;
+  line-height: 1.3;
+  padding-right: 30%;
+  padding-left: 10%;
+  padding-bottom: 24px;
+}
+
+.portfolio {
+  grid-area: portfolio;
+  padding-left: 10%;
+  padding-right: 10%;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background-color: #ece0db;
+}
+
+.portfolio ul {
+  padding-left: 24px;
+  padding-top: 10px;
+  font-size: 2rem;
+  color: #df2727;
+  line-height: 40px;
+}
+
+.portlist {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.portfolio2 {
+  grid-area: portfolio2;
+}
+
+.planos-header {
+  grid-area: planos-header;
+}
+
+.plano1 {
+  grid-area: plano1;
+}
+
+.plano2 {
+  grid-area: plano2;
+}
+
+.plano3 {
+  grid-area: plano3;
+}
+
+.footer {
+  grid-area: footer;
+}
